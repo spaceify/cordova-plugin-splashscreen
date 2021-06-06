@@ -324,7 +324,7 @@ public class SplashScreen extends CordovaPlugin {
                 centeredLayout.setGravity(Gravity.CENTER);
                 centeredLayout.setMinimumHeight(display.getHeight());
                 centeredLayout.setMinimumWidth(display.getWidth());
-                centeredLayout.setBackgroundColor(java.awt.Color.WHITE);
+                centeredLayout.setBackgroundColor(preferences.getInteger("backgroundColor", Color.BLACK));
                 
                 centeredLayout.addView(splashImageView);
 
