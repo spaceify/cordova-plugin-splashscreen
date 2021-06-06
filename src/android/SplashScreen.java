@@ -301,7 +301,7 @@ public class SplashScreen extends CordovaPlugin {
                 splashImageView.setMinimumWidth(display.getWidth());
 
                 // TODO: Use the background color of the webView's parent instead of using the preference.
-                //splashImageView.setBackgroundColor(preferences.getInteger("backgroundColor", Color.BLACK));
+                splashImageView.setBackgroundColor(preferences.getInteger("backgroundColor", Color.WHITE));
 
                 splashImageView.setScaleType(ImageView.ScaleType.CENTER);
                 /*
