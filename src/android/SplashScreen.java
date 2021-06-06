@@ -297,11 +297,11 @@ public class SplashScreen extends CordovaPlugin {
                 LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 splashImageView.setLayoutParams(layoutParams);
 
-                splashImageView.setMinimumHeight(display.getHeight());
-                splashImageView.setMinimumWidth(display.getWidth());
+                //splashImageView.setMinimumHeight(display.getHeight());
+                //splashImageView.setMinimumWidth(display.getWidth());
 
                 // TODO: Use the background color of the webView's parent instead of using the preference.
-                splashImageView.setBackgroundColor(preferences.getInteger("backgroundColor", Color.BLACK));
+                //splashImageView.setBackgroundColor(preferences.getInteger("backgroundColor", Color.BLACK));
 
                 if (isMaintainAspectRatio()) {
                     // CENTER_CROP scale mode is equivalent to CSS "background-size:cover"
@@ -320,7 +320,15 @@ public class SplashScreen extends CordovaPlugin {
                     splashDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                             WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
-                splashDialog.setContentView(splashImageView);
+                RelativeLayout centeredLayout = new RelativeLayout(cordova.getActivity());
+                centeredLayout.setGravity(Gravity.CENTER);
+                centeredLayout.setMinimumHeight(display.getHeight());
+                centeredLayout.setMinimumWidth(display.getWidth());
+                centeredLayout.setBackgroundColor(java.awt.Color.WHITE);
+                
+                centeredLayout.addView(splashImageView);
+
+                splashDialog.setContentView(centeredLayout);
                 splashDialog.setCancelable(false);
                 splashDialog.show();
 
